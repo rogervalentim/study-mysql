@@ -8,6 +8,9 @@ const Book = db.define('books', {
         allowNull: false,
         primaryKey: true,
     },
+    image: {
+        type: Sequelize.STRING,
+    },
     title: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -17,7 +20,7 @@ const Book = db.define('books', {
         allowNull: false,
     },
     price: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
     }
 });
