@@ -1,28 +1,28 @@
 import { Sequelize } from "sequelize";
 import db from "./db.js";
 
-const User = db.define('users', {
+const Book = db.define('books', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true,
     },
-    name: {
+    title: {
         type: Sequelize.STRING,
         allowNull: false,
     },
-    email: {
+    description: {
         type: Sequelize.STRING,
         allowNull: false,
     },
-    password: {
-        type: Sequelize.STRING,
+    price: {
+        type: Sequelize.INTEGER,
         allowNull: false
     }
 });
 
 // create a table in database
-// User.sync()
+// Book.sync()
 
-export default User;
+export default Book;
