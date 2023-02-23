@@ -5,19 +5,19 @@ const booksBestSelling = [
         title: "O limite do universo",
         imgUrl: images.Book1,
         genre: "Ficção cientifica",
-        description: "livro sobre a vida."
+        price: "23,90"
     },
     {
         title: "O Gato Preto",
         imgUrl: images.Book2,
         genre: "Terror",
-        description: "livro sobre lendas de gatos."
+        price: "24,75"
     },
     {
         title: "Memórias",
         imgUrl: images.Book3,
         genre: "Drama",
-        description: "livro sobre o passado."
+        price: "18,00"
     },
 ]
 
