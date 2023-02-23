@@ -21,15 +21,6 @@ const booksBestSelling = [
     },
 ]
 
-const carouselImages = [{
-    image: images.Banner,
-},
-{
-    image: images.Banner,
-},
-{
-    image: images.Banner,
-},
-]
 
-export default { booksBestSelling, carouselImages };
+
+export default { booksBestSelling };
