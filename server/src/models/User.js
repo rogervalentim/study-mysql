@@ -23,6 +23,5 @@ const User = db.define('users', {
 });
 
 // create a table in database
-// User.sync()
 
 export default User;

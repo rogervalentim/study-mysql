@@ -1,14 +1,14 @@
 import React from "react";
 import Banner1 from "../assets/banner.png";
 
-import { Card } from "../components/card";
+import { Card, Carousel  } from "../components";
 
 import { data, images } from "../constants";
 
 const Home = () => {
   return (
-    <section className="mt-[70px] bg-[#010409]">
-      <img className="w-full" src={Banner1} alt="books" />
+    <section className="mt-[70px] bg-black">
+      <Carousel />
       <h1 className="text-white text-2xl saturate-200 font-semibold mx-9 mt-[50px]">Os Mais vendidos</h1>
       <div className="md:grid grid-cols-2 lg:flex justify-around">
       {data.booksBestSelling.map(

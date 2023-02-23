@@ -9,25 +9,22 @@ export const createBooks = async (req, res) => {
             }).catch(() => {
                 return res.status(404).json({
                     erro: true,
-                    mensagem: "Erro ao cadastrarr os livros"
-                })
-            })
+                    mensagem: "Erro ao cadastrarr os livros",
+                });
+            });
         })
 };
 
-export const bestSellingBooks = async (req, res) => {
-    await Book.findAll()
+export const listBooks = async (req, res) => {
+  await Book.findAll(req.body)
         .then(() => {
             return res.json({
                 erro: false,
                 mensagem: "Livros listado com sucesso!"
-            }).catch(() => {
-                return res.status(400).json({
-                    erro: true,
-                    mensagem: "Erro ao listar os livros"
-                })
+            }).catch((error) => {
+                console.log(error)
             })
-        })
+        });
 }
 
 export const updateBooks = async (req, res) => {
@@ -46,8 +43,8 @@ export const updateBooks = async (req, res) => {
                     erro: true,
                     mensagem: "Erro ao atualizar os livros"
                 })
-            })
-        })
+            });
+        });
 }
 
 export const deleteBooks = async (req, res) => {
@@ -58,15 +55,15 @@ export const deleteBooks = async (req, res) => {
             id: id,
         }
     })
-    .then(() => {
-        return res.json({
-            erro: false,
-            mensagem: "livro deletado com sucesso!"
-        }).catch(() => {
-            return res.status(400).json({
-                erro: true,
-                mensagem: "erro ao deletar o livro!"
-            })
-        })
-    })
+        .then(() => {
+            return res.json({
+                erro: false,
+                mensagem: "livro deletado com sucesso!"
+            }).catch(() => {
+                return res.status(400).json({
+                    erro: true,
+                    mensagem: "erro ao deletar o livro!"
+                });
+            });
+        });
 }
