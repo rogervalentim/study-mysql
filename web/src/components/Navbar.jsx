@@ -12,15 +12,10 @@ const Navbar = () => {
     <nav className="shadow-md w-full fixed top-0 left-0">
       <div className="md:flex justify-between  bg-[#F0E68C] py-4 md:px-10 px-7">
         <div className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] text-gray-800">
-          <span className="text-3xl text-yellow-600 text-black mr-1 pt-2">
+          <span className="text-black mr-1 pt-2">
             <ion-icon name="book-outline"></ion-icon>
           </span>
           LIVROS
-        </div>
-        <div className="flex justify-center">
-          <input 
-          className="w-[400px] h-[40px] rounded text-center absolute" 
-          type="text" placeholder="O que você está buscando ?"/>
         </div>
         <div
           onClick={() => setOpen(!open)}

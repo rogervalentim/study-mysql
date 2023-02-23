@@ -7,10 +7,10 @@ import { data, images } from "../constants";
 
 const Home = () => {
   return (
-    <section className="mt-[80px]">
+    <section className="mt-[70px] bg-[#010409]">
       <img className="w-full" src={Banner1} alt="books" />
-      <h1 className="text-black text-2xl saturate-200 font-semibold mx-9 mt-[50px]">Os Mais vendidos</h1>
-      <div className="sm:grid grid-cols-2 md:grid grid-cols-2 lg:flex justify-around">
+      <h1 className="text-white text-2xl saturate-200 font-semibold mx-9 mt-[50px]">Os Mais vendidos</h1>
+      <div className="md:grid grid-cols-2 lg:flex justify-around">
       {data.booksBestSelling.map(
         (book) => <Card key={book.title} book={book} />
       )}

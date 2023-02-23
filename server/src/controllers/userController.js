@@ -1,11 +1,11 @@
 import User from "../models/User.js";
 
 export const listUser = async (req,res) => {
-    await User.findAll(req.body) 
+ const users =  await User.findAll(req.body) 
     .then(() => {
         return res.json({
             erro: false,
-            mensagem: "usuário listado com sucesso!"
+            mensagem: "usuário listado com sucesso!",
         });
     }).catch(() => {
         return res.status(404).json({
