@@ -59,11 +59,11 @@ export const deleteBooks = async (req, res) => {
             return res.json({
                 erro: false,
                 mensagem: "livro deletado com sucesso!"
-            }).catch(() => {
-                return res.status(400).json({
-                    erro: true,
-                    mensagem: "erro ao deletar o livro!"
-                });
-            });
-        });
+            })
+        }).catch(() => {
+            return res.status(400).json({
+                erro: true,
+                mensagem: "erro ao deletar o livro"
+            })
+        })
 }

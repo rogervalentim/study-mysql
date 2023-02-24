@@ -1,7 +1,7 @@
 import React from "react";
 
 const Card = ({ book: { title, imgUrl, genre, price} }) =>  (
-    <div className="bg-white/5 bg-opacity-80 backdrop-blur-sm  animate-slideup rounded-lg w-[200px] mt-[50px] shadow-inherit">
+    <div className="bg-white/5 bg-opacity-80 backdrop-blur-sm shadow  animate-slideup rounded-lg w-[200px] mt-[50px] shadow-inherit">
       <div className="flex justify-center">
       <img className="w-[150px] saturate-200" src={imgUrl} alt="image book" />
       </div>
