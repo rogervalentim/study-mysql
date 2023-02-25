@@ -14,7 +14,7 @@ const booksBestSelling = [
         price: "24,75"
     },
     {
-        title: "Memórias",
+        title: "Segredos de um Amor",
         imgUrl: images.Book3,
         genre: "Drama",
         price: "18,00"

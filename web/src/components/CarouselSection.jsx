@@ -8,21 +8,21 @@ const CarouselSection = () => {
         <Carousel slide={false}>
           <Carousel.Item>
             <img
-              className="d-block w-100 mt-3 saturate-200"
+              className="d-block w-100 mt-3"
               src={Banner}
               alt="First slide"
             />
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className="d-block w-100 mt-3 saturate-200"
+              className="d-block w-100 mt-3"
               src={Banner2}
               alt="Second slide"
             />
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className="d-block w-100 mt-3 saturate-200"
+              className="d-block w-100 mt-3"
               src={Banner}
               alt="Third slide"
             />
