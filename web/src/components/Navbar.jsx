@@ -9,7 +9,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <nav className="shadow-md w-full h-[80px] z-10 fixed top-0 left-0">
-      <div className="md:flex justify-between bg-[#dbbf6b] py-4 md:px-10 px-7">
+      <div className="md:flex justify-between bg-yellow-500 py-4 md:px-10 px-7">
         <div className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] text-gray-800">
           <span className="text-black mr-1 pt-2">
             <ion-icon name="book-outline"></ion-icon>
@@ -23,7 +23,7 @@ const Navbar = () => {
           {open ? <GrClose /> : <GiHamburgerMenu />}
         </div>
         <ul
-          className={`md:flex md:items-center md:pb-0 pb-12  absolute md:static bg-[#dbbf6b] md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+          className={`md:flex md:items-center md:pb-0 pb-12  absolute md:static bg-yellow-500 md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
             open ? "top-20" : "top-[-480px]"
           }`}
         >
