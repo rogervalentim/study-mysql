@@ -6,8 +6,8 @@ const Card = ({ book: { title, imgUrl, genre, price} }) =>  (
       <img className="w-[150px] mt-4 saturate-200" src={imgUrl} alt="image book" />
       </div>
       <div className="text-center ">
-      <p className="text-black">{title}</p> <span>{genre}</span>
-      <h3 className="text-white font-bold">R${price}</h3>
+      <p className="text-black font-semibold">{title}</p> <span>{genre}</span>
+      <h3 className="text-black font-bold">R${price}</h3>
       <button className="w-[150px] mt[10px] h-[40px] text-black rounded bg-yellow-400 hover:bg-yellow-600">Comprar</button>
       </div>
     </div>
