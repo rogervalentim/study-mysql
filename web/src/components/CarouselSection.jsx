@@ -9,16 +9,16 @@ const CarouselSection = () => {
   return (
     <Carousel slide={false}>
       <Carousel.Item>
-        <img className="d-block w-100 mt-3" src={Banner} alt="First slide" />
+        <img className="d-block w-100 h-[400px] mt-3" src={Banner} alt="First slide" />
       </Carousel.Item>
       <Carousel.Item>
-        <img className="d-block w-100 mt-3" src={Banner2} alt="Second slide" />
+        <img className="d-block w-100 h-[400px] mt-3" src={Banner2} alt="Second slide" />
       </Carousel.Item>
       <Carousel.Item>
-        <img className="d-block w-100 mt-3" src={Banner3} alt="Third slide" />
+        <img className="d-block w-100 h-[400px] mt-3" src={Banner3} alt="Third slide" />
       </Carousel.Item>
       <Carousel.Item>
-        <img className="d-block w-100 mt-3" src={Banner4} alt="Third slide" />
+        <img className="d-block w-100 h-[400px] mt-3" src={Banner4} alt="Third slide" />
       </Carousel.Item>
     </Carousel>
   );
