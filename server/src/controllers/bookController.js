@@ -6,24 +6,25 @@ export const createBooks = async (req, res) => {
             return res.json({
                 erro: false,
                 mensagem: "Livros cadastrado com sucesso!"
-            }).catch(() => {
-                return res.status(404).json({
-                    erro: true,
-                    mensagem: "Erro ao cadastrarr os livros",
-                });
+            })
+        }).catch(() => {
+            return res.status(404).json({
+                erro: true,
+                mensagem: "Erro ao cadastrar os livros",
             });
-        })
+        });
+
 };
 
 export const listBooks = async (req, res) => {
-  await Book.findAll(req.body)
+    await Book.findAll(req.body)
         .then(() => {
             return res.json({
                 erro: false,
                 mensagem: "Livros listado com sucesso!"
-            }).catch((error) => {
-                console.log(error)
-            })
+            });
+        }).catch((error) => {
+            console.log(error)
         });
 }
 
@@ -38,12 +39,12 @@ export const updateBooks = async (req, res) => {
             return res.json({
                 erro: false,
                 mensagem: "livro atualizado com sucesso !"
-            }).catch(() => {
-                return res.status(400).json({
-                    erro: true,
-                    mensagem: "Erro ao atualizar os livros"
-                })
             });
+        }).catch(() => {
+            return res.status(400).json({
+                erro: true,
+                mensagem: "Erro ao atualizar os livros"
+            })
         });
 }
 

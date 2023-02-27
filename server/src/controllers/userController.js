@@ -50,7 +50,7 @@ export const updateUser = async (req, res) => {
         })
 }
 
-export const deleteUser = async (req,res) => {
+export const deleteUser = async (req, res) => {
     const { id } = req.params;
     await User.findByPk(id)
     await User.destroy({
@@ -58,15 +58,15 @@ export const deleteUser = async (req,res) => {
             id,
         }
     })
-    .then(() => {
-        return res.json({
-            erro: false,
-            mensagem: "Usuário deletado com sucesso!",
-        }).catch(() => {
-            return res.status(400).json({
-            erro: true,
-            mensagem: "Erro ao deletar o livro",
-        });
-    });
-    })
+        .then(() => {
+            return res.json({
+                erro: false,
+                mensagem: "Usuário deletado com sucesso!",
+            }).catch(() => {
+                return res.status(400).json({
+                    erro: true,
+                    mensagem: "Erro ao deletar o livro",
+                });
+            });
+        })
 }
