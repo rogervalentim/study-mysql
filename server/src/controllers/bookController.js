@@ -17,15 +17,18 @@ export const createBooks = async (req, res) => {
 };
 
 export const listBooks = async (req, res) => {
-    await Book.findAll(req.body)
-        .then(() => {
-            return res.json({
-                erro: false,
-                mensagem: "Livros listado com sucesso!"
-            });
-        }).catch((error) => {
-            console.log(error)
+    await Book.findAll({}).then((books) => {
+        return res.json({
+            erro: false,
+            books
         });
+    }).catch(() => {
+        return res.status(200).json({
+            erro: true,
+            mensagem: "erro ao listar os livros"
+        })
+    })
+
 }
 
 export const updateBooks = async (req, res) => {
