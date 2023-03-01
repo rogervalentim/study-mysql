@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Navbar from "./components/Navbar";
 
-import { Home, Books, Login, Register } from "./pages";
+import { Home, Books, Login, Register, FormBooks } from "./pages";
 
 import "./styles/global.css";
 
@@ -17,6 +17,7 @@ function App() {
       <Route path="/livros" element={<Books />} />
       <Route path="/login" element={<Login />} />
       <Route path="/registrar" element={<Register />} />
+      <Route path="/cadastrar-livros" element={<FormBooks />} />
       </Routes>
       </BrowserRouter>
     </div>

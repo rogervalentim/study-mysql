@@ -29,7 +29,7 @@ const Home = () => {
       <h1 className="text-gray-200 text-2xl saturate-200 font-semibold mx-9 mt-[50px]">
         Os Mais vendidos
       </h1>
-      <div className="grid gap-4 grid-cols-3 grid-rows-3">
+      <div className="mx-4 grid md:grid-cols-2 gap-4 lg:grid-cols-4 ">
         {books.map((book) => (
           <Card 
           key={book.title}
