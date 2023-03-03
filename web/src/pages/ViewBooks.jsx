@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { api } from "../../lib/axios";
 
-const FormBooks = () => {
+import { Link } from "react-router-dom";
+
+const ViewBooks = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -18,21 +20,14 @@ const FormBooks = () => {
     fetchData();
   }, []);
 
+
   return (
     <>
       <div className="mt-[100px] flex justify-center">
         <h1>Tabela de cadastro de livros</h1>
       </div>
       <section className="flex justify-center">
-        <span className="flex justify-end">
-          {" "}
-          <button
-            type="button"
-            className="bg-blue-500 text-white rounded w-[100px] h-[40px] cursor-pointer"
-          >
-            Adicionar
-          </button>
-        </span>
+       
         <table className="table-fixed mt-[200px] border-spacing-0 ">
           <thead>
             <tr className="bg-blue-200 text-center">
@@ -41,7 +36,7 @@ const FormBooks = () => {
               <th className="border border-slate-600">Descrição</th>
               <th className="border border-slate-600">Preço</th>
               <th className="border border-slate-600">Imagem</th>
-              <th className="border border-slate-600">Ações</th>
+              <th className="border border-slate-600">Ações</th>,.
             </tr>
           </thead>
           <tbody>
@@ -54,18 +49,22 @@ const FormBooks = () => {
                 <td className="border border-black">{book.image}</td>
                 <td className="border border-black">
                   <div className="mx-2">
+                    <Link to={`/visualizar-livro/` + book.id}>
                     <button
                       type="button"
-                      className="bg-red-500 text-white rounded w-[100px] h-[40px]"
+                      className="bg-blue-500 text-white rounded w-[100px] h-[40px]"
                     >
-                      Deletar
+                      Visualizar
                     </button>
+                    </Link>
+                    <Link to={`/editar-livro/`+ book.id}>
                     <button
                       type="button"
                       className="bg-green-500 text-white rounded w-[100px] h-[40px] mx-1"
                     >
                       Editar
                     </button>
+                    </Link>
                   </div>
                 </td>
                 <td className="border border-black"></td>
@@ -78,4 +77,4 @@ const FormBooks = () => {
   );
 };
 
-export default FormBooks;
+export default ViewBooks;

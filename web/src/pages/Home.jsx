@@ -4,6 +4,9 @@ import { api } from "../../lib/axios";
 import { Card, CarouselSection } from "../components";
 import { data, images } from "../constants";
 
+import Offer1 from "../assets/offer-1.png";
+import Offer2 from "../assets/offer-2.png";
+
 const Home = () => {
   const [books, setBooks] = useState([]);
 
@@ -21,8 +24,6 @@ const Home = () => {
     fetchData();
   }, []);
 
-  // console.log(books)
-
   return (
     <section className="mt-[70px] bg-black">
       <CarouselSection />
@@ -39,6 +40,10 @@ const Home = () => {
           price={book.price}
           />
         ))}
+      </div>
+      <div className="flex justify-center mt-[100px]">
+        <img src={Offer1}  />
+        {/* <img src={Offer2}  /> */}
       </div>
     </section>
   );
