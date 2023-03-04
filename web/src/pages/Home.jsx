@@ -25,7 +25,7 @@ const Home = () => {
   }, []);
 
   return (
-    <section className="mt-[70px] bg-black">
+    <section className="mt-[70px]">
       <CarouselSection />
       <h1 className="text-gray-200 text-2xl saturate-200 font-semibold mx-9 mt-[50px]">
         Os Mais vendidos
