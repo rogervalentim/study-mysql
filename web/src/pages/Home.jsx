@@ -30,7 +30,7 @@ const Home = () => {
       <h1 className="text-gray-200 text-2xl saturate-200 font-semibold mx-9 mt-[50px]">
         Os Mais vendidos
       </h1>
-      <div className="mx-4 grid md:grid-cols-2 gap-4 lg:grid-cols-4 ">
+      <div className="mx-4 grid sm:grid grid-cols-2 gap-4 lg:grid-cols-4 ">
         {books.map((book) => (
           <Card 
           key={book.title}
@@ -41,9 +41,9 @@ const Home = () => {
           />
         ))}
       </div>
-      <div className="flex justify-center mt-[100px]">
-        <img className="w-[550px]" src={Offer1}  />
-        <img className="w-[550px] mx-[50px]" src={Offer2}  />
+      <div className="sm:block gap-2 lg:flex justify-center mt-[100px]">
+        <img className="sm:w-[150px] lg:w-[550px] h-[250px]" src={Offer1}  />
+        <img className="sm:w-[150px] lg:w-[550px] h-[250px] mx-4" src={Offer2}  />
       </div>
     </section>
   );

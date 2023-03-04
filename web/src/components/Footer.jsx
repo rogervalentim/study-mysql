@@ -27,7 +27,7 @@ const Footer = () => {
           <BsLinkedin size={25} className="text-black mx-3" />
         </div>
       </div>
-      <div className="bg-black h-[300px] flex justify-around">
+      <div className="bg-black h-auto sm:block lg:flex justify-around">
         <ul className="mt-[50px]">
           <h5 className="text-white">Atendimento</h5>
           <li>Política de Vendas, Trocas e Privacidade</li>
@@ -43,7 +43,7 @@ const Footer = () => {
         </ul>
       <div className="mt-[50px]">
         <h5 className="text-white">Formas de Pagamento</h5>
-        <ul className="grid grid-cols-3 gap-1 ">
+        <ul className="sm:block lg:grid grid-cols-3 gap-1 ">
         {data.cardsOfPayement.map(card => (
           <img className="w-[35px] h-[35px] rounded-sm" key={card.imageCard} src={card.imageCard} />
         ))}
