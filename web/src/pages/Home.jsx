@@ -42,8 +42,8 @@ const Home = () => {
         ))}
       </div>
       <div className="flex justify-center mt-[100px]">
-        <img src={Offer1}  />
-        {/* <img src={Offer2}  /> */}
+        <img className="w-[500px]" src={Offer1}  />
+        <img className="w-[500px] mx-[50px]" src={Offer2}  />
       </div>
     </section>
   );

@@ -20,7 +20,7 @@ const Book = db.define('books', {
         allowNull: false,
     },
     price: {
-        type: Sequelize.STRING,
+        type: Sequelize.DECIMAL,
         allowNull: false
     }
 });
