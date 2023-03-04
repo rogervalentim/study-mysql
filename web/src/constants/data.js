@@ -21,6 +21,25 @@ const booksBestSelling = [
     },
 ]
 
+const cardsOfPayement = [{
+    imageCard: images.Card1,
+},
+{
+    imageCard: images.Card2,
+},
+{
+    imageCard: images.Card3,
+},
+{
+    imageCard: images.Card4,
+},
+{
+    imageCard: images.Card5,
+},
+{
+    imageCard: images.Card6,
+},
+]
 
 
-export default { booksBestSelling };
+export default { booksBestSelling, cardsOfPayement };
