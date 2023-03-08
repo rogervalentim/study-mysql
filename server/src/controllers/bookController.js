@@ -31,6 +31,25 @@ export const listBooks = async (req, res) => {
 
 }
 
+export const viewBook = async (req, res) => {
+    const { id } = req.params;
+    await Book.findOne({
+        where: {
+            id,
+        }
+    }).then((book) => {
+        return res.json({
+            erro: false,
+            book
+        });
+    }).catch(() => {
+        return res.status(400).json({
+            erro: true,
+            mensagem: "erro ao visualizar um livro !"
+        })
+    })
+}
+
 export const updateBooks = async (req, res) => {
     const { id } = req.params;
     await Book.update(req.body, {
