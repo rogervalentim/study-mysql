@@ -31,11 +31,11 @@ const Home = () => {
       <h1 className="text-gray-200 text-2xl saturate-200 font-semibold mx-9 mt-[50px]">
         Os Mais vendidos
       </h1>
-      <div className="mx-4 grid sm:grid grid-cols-2 gap-4 lg:grid-cols-4 ">
-        {books.map((book) => (
-          <Link className="no-underline text-gray-400 hover:text-gray-600" to={"/livro/" + book.id}>
+      <div className="mx-4 grid sm:grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 ">
+        {books.map((book, index) => (
+          <Link key={book.image} className="no-underline text-gray-400 hover:text-gray-600" to={"/livro/" + book.id}>
           <Card 
-          key={book.title}
+          key={index}
           title={book.title}
           image={book.image}
           description={book.description}
@@ -44,9 +44,9 @@ const Home = () => {
         </Link>
         ))}
       </div>
-      <div className="sm:block gap-2 lg:flex justify-center mt-[100px]">
-        <img className="sm:w-[150px] lg:w-[550px] h-[250px]" src={Offer1}  />
-        <img className="sm:w-[150px] lg:w-[550px] h-[250px] mx-4" src={Offer2}  />
+      <div className="sm:block lg:flex justify-around mt-[100px]">
+        <img className="sm:w-[150px] md:w-full  lg:w-[550px] h-[250px]" src={Offer1}  />
+        <img className="sm:w-[150px] md:w-full mt-8  lg:w-[550px] h-[250px]" src={Offer2}  />
       </div>
     </section>
   );

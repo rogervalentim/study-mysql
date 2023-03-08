@@ -12,14 +12,14 @@ import data from "../constants/data";
 const Footer = () => {
   return (
     <footer className="mt-[100px]">
-      <div className=" bg-yellow-200 flex justify-between py-3 h-[150px]">
+      <div className=" bg-yellow-200 md:w-[767px]  lg:w-full flex justify-between py-3 h-[150px]">
         <div className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] px-4 text-gray-800">
           <span className="text-black mr-1 pt-2">
             <ion-icon name="book-outline"></ion-icon>
           </span>
           LIVROS
         </div>
-        <div className="flex px-6 items-center">
+        <div className="md:mt-4 flex px-6 items-center">
           <BsFacebook size={25} className="text-black mx-3" />
           <BsTwitter size={25} className="text-black mx-3" />
           <BsInstagram size={25} className="text-black mx-3" />
@@ -42,8 +42,8 @@ const Footer = () => {
           <li>Trabalhe Conosco</li>
         </ul>
       <div className="mt-[50px]">
-        <h5 className="text-white">Formas de Pagamento</h5>
-        <ul className="sm:block lg:grid grid-cols-3 gap-1 ">
+        <h5 className="text-white sm:mx-2">Formas de Pagamento</h5>
+        <ul className="sm:flex lg:grid grid-cols-3 gap-1 ">
         {data.cardsOfPayement.map(card => (
           <img className="w-[35px] h-[35px] rounded-sm" key={card.imageCard} src={card.imageCard} />
         ))}

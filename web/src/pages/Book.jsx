@@ -4,10 +4,9 @@ import { Card } from "../components";
 
 import { useParams } from "react-router-dom";
 
-
-const Book = () => {
+const Book = ({ title, image, description, price }) => {
   const [books, setBooks] = useState([]);
-  
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -23,11 +22,11 @@ const Book = () => {
     }
     fetchData();
   }, []);
-  
+
   return (
     <div>
-     {/* <p>{book.title}</p> */}
-     <p>olá </p>
+      <p>{title}</p>
+      <p>olá </p>
     </div>
   );
 };
