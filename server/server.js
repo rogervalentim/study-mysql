@@ -14,7 +14,7 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
     res.header("Access-Control-Allow-Headers", "X-PINGOTHER, Content-Type, Authorization");
-    app.use(express.static(path.join("public")));
+    app.use(express.static(path.join("assets")));
     app.use(cors());
     next();
 });

@@ -4,8 +4,8 @@ import { Card } from "../components";
 
 import { useParams } from "react-router-dom";
 
-const Book = ({ title, image, description, price }) => {
-  const [books, setBooks] = useState([]);
+const Book = () => {
+  const [book, setBook] = useState([]);
 
   const { id } = useParams();
 
@@ -13,20 +13,19 @@ const Book = ({ title, image, description, price }) => {
     async function fetchData() {
       await api
         .get(`/livro/${id}`)
-        .then((response) => {
-          setBooks(response.data.books);
-        })
+          .then((responseJson) => {
+            setBook(responseJson.data.book);
+          })
         .catch((error) => {
           console.log(error);
         });
     }
     fetchData();
-  }, []);
+  }, [id]);
 
   return (
-    <div>
-      <p>{title}</p>
-      <p>olá </p>
+    <div className="mt-[70px] h-screen">
+      <h1>{book.title}</h1>
     </div>
   );
 };
