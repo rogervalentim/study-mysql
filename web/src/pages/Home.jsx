@@ -10,7 +10,6 @@ import Offer2 from "../assets/offer-2.png";
 const Home = () => {
   const [books, setBooks] = useState([]);
 
-
   useEffect(() => {
     async function fetchData() {
       await api

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ title, image , description, price, }) =>  (
+const Card = ({ title, image , description, price }) =>  (
     <div className=" bg-white/5 bg-opacity-80 backdrop-blur-sm shadow cursor-pointer animate-slideup rounded-lg shadow-inherit h-auto w-[250px]  mt-[50px]">
       <div className="flex justify-center">
       <img className="saturate-200  w-[150px]" src={image} alt="image book" />

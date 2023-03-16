@@ -12,7 +12,7 @@ import data from "../constants/data";
 const Footer = () => {
   return (
     <footer className="mt-[100px] h-auto">
-      <div className=" bg-yellow-200 sm:w-full  md:w-full  lg:w-full flex justify-between py-3 h-[150px]">
+      <div className=" bg-yellow-200 w-full sm:block lg:flex justify-between h-[150px]">
         <div className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] px-4 text-gray-800">
           <span className="text-black mr-1 pt-2">
             <ion-icon name="book-outline"></ion-icon>

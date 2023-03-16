@@ -3,7 +3,8 @@ import Books from "../pages/Books";
 import Book from "../pages/Book";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import ViewBooks from "./ViewBooks";
+import ViewBooks from "../pages/ViewBooks";
+import CreateBook from "./CreateBook";
 
 export {
     Home,
@@ -12,4 +13,5 @@ export {
     Login,
     Register,
     ViewBooks,
+    CreateBook,
 }

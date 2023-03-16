@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { api } from "../../lib/axios";
-import { Card } from "../components";
 
 import { useParams } from "react-router-dom";
 
-const Book = () => {
-  const [book, setBook] = useState([]);
 
+const Book = () => {
+  const [book, setBook] = useState({});
+ 
   const { id } = useParams();
 
   useEffect(() => {
@@ -26,6 +26,7 @@ const Book = () => {
   return (
     <div className="mt-[70px] h-screen">
       <h1>{book.title}</h1>
+      <img src={book.image} alt="" />
     </div>
   );
 };

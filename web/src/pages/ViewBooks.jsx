@@ -23,23 +23,23 @@ const ViewBooks = () => {
 
   return (
     <>
-      <div className="mt-[100px] flex justify-center">
-        <h1>Tabela de cadastro de livros</h1>
+      <div className="flex justify-center">
+        <h1 className="mt-[100px] text-white">Tabela de cadastro de livros</h1>
       </div>
       <section className="flex justify-center">
        
-        <table className="table-fixed mt-[200px] border-spacing-0 ">
+        <table className="table-fixed mt-[50px] border-spacing-0 ">
           <thead>
             <tr className="bg-blue-200 text-center">
-              <th className="border border-slate-600 w-[70px]">Id</th>
-              <th className="border border-slate-600">Titulo</th>
-              <th className="border border-slate-600">Descrição</th>
-              <th className="border border-slate-600">Preço</th>
-              <th className="border border-slate-600">Imagem</th>
-              <th className="border border-slate-600">Ações</th>,.
+              <th className="border border-black w-[70px]">Id</th>
+              <th className="border border-black ">Titulo</th>
+              <th className="border border-black">Descrição</th>
+              <th className="border border-black">Preço</th>
+              <th className="border border-black">Imagem</th>
+              <th className="border border-black">Ações</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="bg-yellow-200">
             {books.map((book) => (
               <tr key={book.id} className="text-center">
                 <td className="border border-black">{book.id}</td>
@@ -67,7 +67,6 @@ const ViewBooks = () => {
                     </Link>
                   </div>
                 </td>
-                <td className="border border-black"></td>
               </tr>
             ))}
           </tbody>

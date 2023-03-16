@@ -1,24 +1,38 @@
 import images from "./images";
 
-const booksBestSelling = [
+const booksImages = [
     {
         title: "O limite do universo",
         imgUrl: images.Book1,
-        genre: "Ficção cientifica",
-        price: "23,90"
     },
     {
         title: "O Gato Preto",
         imgUrl: images.Book2,
-        genre: "Terror",
-        price: "24,75"
     },
     {
         title: "Segredos de um Amor",
         imgUrl: images.Book3,
-        genre: "Drama",
-        price: "18,00"
     },
+    {
+        title: "Filosofia é história",
+        imgUrl: images.Book4,
+    },
+    {
+        title: "O palhaço",
+        imgUrl: images.Book5,
+    },
+    {
+        title: "É o amor",
+        imgUrl: images.Book6,
+    },
+    {
+        title: "A bruxa",
+        imgUrl: images.Book7,
+    },
+    {
+        title: "Amores passados",
+        imgUrl: images.Book8,
+    }
 ]
 
 const cardsOfPayement = [{
@@ -42,4 +56,4 @@ const cardsOfPayement = [{
 ]
 
 
-export default { booksBestSelling, cardsOfPayement };
+export default { booksImages, cardsOfPayement };

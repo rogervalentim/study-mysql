@@ -33,11 +33,7 @@ export const listBooks = async (req, res) => {
 
 export const viewBook = async (req, res) => {
     const { id } = req.params;
-    await Book.findOne({
-        where: {
-            id,
-        }
-    }).then((book) => {
+    await Book.findByPk(id).then((book) => {
         return res.json({
             erro: false,
             book
