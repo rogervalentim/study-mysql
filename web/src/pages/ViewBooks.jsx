@@ -3,8 +3,13 @@ import { api } from "../../lib/axios";
 
 import { Link } from "react-router-dom";
 
+import { useParams } from "react-router-dom";
+
+
 const ViewBooks = () => {
   const [books, setBooks] = useState([]);
+
+  const {id} = useParams();
 
   useEffect(() => {
     async function fetchData() {
@@ -19,6 +24,7 @@ const ViewBooks = () => {
     }
     fetchData();
   }, []);
+
 
 
   return (
@@ -57,14 +63,13 @@ const ViewBooks = () => {
                       Visualizar
                     </button>
                     </Link>
-                    <Link to={`/editar-livro/`+ book.id}>
                     <button
                       type="button"
-                      className="bg-green-500 text-white rounded w-[100px] h-[40px] mx-1"
+                      className="bg-red-500 text-white rounded w-[100px] h-[40px] mx-1"
+                      // onClick={DeleteBook}
                     >
-                      Editar
+                      Deletar
                     </button>
-                    </Link>
                   </div>
                 </td>
               </tr>

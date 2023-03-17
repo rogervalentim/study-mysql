@@ -42,53 +42,62 @@ function CreateBook() {
 
   return (
     <div className="h-screen">
-      <form className="flex flex-col mt-[150px] items-center" onSubmit={handleSubmit}>
-        <label className="text-[#fff]" htmlFor="title">
-          Nome:
-        </label>
-        <input
-          className="bg-yellow-200 w-[400px] h-[45px] rounded"
-          type="text"
-          id="title"
-          placeholder="Nome do livro:"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+      <h1 className="text-white mt-[90px] flex justify-center py-4">
+        Formulário de cadastramento de livros
+      </h1>
 
-        <label htmlFor="image">Imagem:</label>
-        <input
-          className="bg-yellow-200 w-[400px] h-[45px] rounded"
-          type="text"
-          id="image"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
-        />
+      <div className="flex justify-center">
+        <form className="flex flex-col mt-[90px] gap-2" onSubmit={handleSubmit}>
+          <label className="text-white" htmlFor="title">
+            Nome:
+          </label>
+          <input
+            className="bg-yellow-200 w-[550px] h-[45px] rounded flex justify-center placeholder:text-gray-800"
+            type="text"
+            id="title"
+            placeholder="O gato preto"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
 
-        <label htmlFor="description">Descrição:</label>
-        <input
-          className="bg-yellow-200 w-[400px] h-[45px] rounded"
-          type="text"
-          id="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
+          <label className="text-white" htmlFor="image">Imagem:</label>
+          <input
+            className="bg-yellow-200 w-[550px] h-[45px] rounded placeholder:text-gray-800"
+            type="text"
+            id="image"
+            placeholder="./src/assets/book-1.png"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+          />
 
-        <label htmlFor="price">Preço:</label>
-        <input
-          className="bg-yellow-200 w-[400px] h-[45px] rounded"
-          type="text"
-          id="price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
+          <label className="text-white" htmlFor="description">Descrição:</label>
+          <input
+            className="bg-yellow-200 w-[550px] h-[45px] rounded placeholder:text-gray-800"
+            type="text"
+            id="description"
+            placeholder="livro sobre suspense, romance , comédia ..."
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
 
-        <button
-          className="bg-green-700 rounded text-white w-[100px] h-[45px]"
-          type="submit"
-        >
-          Cadastrar
-        </button>
-      </form>
+          <label className="text-white" htmlFor="price">Preço:</label>
+          <input
+            className="bg-yellow-200 w-[550px] h-[45px] rounded placeholder:text-gray-800"
+            type="text"
+            id="price"
+            value={price}
+            placeholder="23"
+            onChange={(e) => setPrice(e.target.value)}
+          />
+
+          <button
+            className="bg-green-700 hover:bg-green-500 rounded text-white w-full h-[45px] mt-2"
+            type="submit"
+          >
+            Cadastrar
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
