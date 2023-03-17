@@ -8,7 +8,7 @@ const Card = ({ title, image , description, price }) =>  (
       <div className="text-center ">
       <p className="text-gray-400 font-semibold">{title}</p> 
       <h3 className="text-white font-bold">R${price}</h3>
-      <p>{description}</p>
+      <p className="text-cyan-500">{description}</p>
       <button className="text-black rounded bg-yellow-400 h-[45px] hover:bg-yellow-600 w-[150px] mt[2px]">Comprar</button>
       </div>
     </div>
