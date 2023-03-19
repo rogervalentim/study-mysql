@@ -50,7 +50,7 @@ function CreateBook() {
 
   return (
     <div className="h-screen">
-      <h1 className="text-white mt-[90px] flex justify-center py-4">
+      <h1 className="text-black mt-[90px] flex justify-center py-4">
         Formulário de cadastramento de livros
       </h1>
 
@@ -60,8 +60,8 @@ function CreateBook() {
 
 
       <div className="flex justify-center">
-        <form className="flex flex-col mt-[90px] gap-2" onSubmit={handleSubmit}>
-          <label className="text-white" htmlFor="title">
+        <form className="flex flex-col mt-[90px] gap-1" onSubmit={handleSubmit}>
+          <label className="text-black" htmlFor="title">
             Nome:
           </label>
           <input
@@ -73,7 +73,7 @@ function CreateBook() {
             onChange={(e) => setTitle(e.target.value)}
           />
 
-          <label className="text-white" htmlFor="image">Imagem:</label>
+          <label className="text-black" htmlFor="image">Imagem:</label>
           <input
             className="bg-yellow-200 w-[550px] h-[45px] rounded placeholder:text-gray-800"
             type="text"
@@ -83,7 +83,7 @@ function CreateBook() {
             onChange={(e) => setImage(e.target.value)}
           />
 
-          <label className="text-white" htmlFor="description">Descrição:</label>
+          <label className="text-black" htmlFor="description">Descrição:</label>
           <input
             className="bg-yellow-200 w-[550px] h-[45px] rounded placeholder:text-gray-800"
             type="text"
@@ -93,7 +93,7 @@ function CreateBook() {
             onChange={(e) => setDescription(e.target.value)}
           />
 
-          <label className="text-white" htmlFor="price">Preço:</label>
+          <label className="text-black" htmlFor="price">Preço:</label>
           <input
             className="bg-yellow-200 w-[550px] h-[45px] rounded placeholder:text-gray-800"
             type="text"
@@ -104,7 +104,7 @@ function CreateBook() {
           />
 
           <button
-            className="bg-green-700 hover:bg-green-500 rounded text-white w-full h-[45px] mt-2"
+            className="bg-gray-700 hover:bg-green-500 rounded text-white w-full h-[45px] mt-2"
             type="submit"
           >
             Cadastrar

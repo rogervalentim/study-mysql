@@ -7,8 +7,13 @@ import { useParams } from "react-router-dom";
 
 import { toast } from "react-toastify";
 
+import ConfirmModal from "../components/ConfirmModal";
+
 const ViewBooks = () => {
   const [books, setBooks] = useState([]);
+
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [bookToDelete, setBookToDelete] = useState(null);
 
   const { id } = useParams();
 
@@ -75,17 +80,30 @@ const ViewBooks = () => {
                     <button
                       type="button"
                       className="bg-red-500 text-white rounded w-[100px] h-[40px] mx-1"
-                      onClick={() => deleteBook(book.id)}
+                      onClick={() => {
+                        setBookToDelete(book);
+                        setShowConfirmModal(true);
+                      }}
                     >
                       Deletar
                     </button>
                   </div>
                 </td>
               </tr>
-            ))}            
+            ))}
           </tbody>
         </table>
       </section>
+      {showConfirmModal && (
+        <ConfirmModal
+          book={bookToDelete}
+          onClose={() => setShowConfirmModal(false)}
+          onDelete={() => {
+            deleteBook(bookToDelete.id);
+            setShowConfirmModal(false);
+          }}
+        />
+      )}
     </>
   );
 };
