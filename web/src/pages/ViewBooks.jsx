@@ -26,11 +26,15 @@ const ViewBooks = () => {
     fetchData();
   }, []);
 
-  const deleteBook = async () => {
-    await api
-      .delete(`deletar-livro/${id}`)
-      .then(({ data }) => toast.success(data))
-      .catch(({ data }) => toast.error(data));
+  const deleteBook = async (bookId) => {
+    try {
+      await api.delete(`deletar-livro/${bookId}`);
+      setBooks(books.filter((book) => book.id !== bookId));
+      toast.success("Livro deletado com sucesso!");
+    } catch (error) {
+      console.log(error);
+      toast.error("Ocorreu um erro ao deletar o livro.");
+    }
   };
 
   return (
@@ -71,14 +75,14 @@ const ViewBooks = () => {
                     <button
                       type="button"
                       className="bg-red-500 text-white rounded w-[100px] h-[40px] mx-1"
-                      onClick={deleteBook}
+                      onClick={() => deleteBook(book.id)}
                     >
                       Deletar
                     </button>
                   </div>
                 </td>
               </tr>
-            ))}
+            ))}            
           </tbody>
         </table>
       </section>
