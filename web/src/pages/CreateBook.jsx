@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useRef } from "react";
 
 import { api } from "../../lib/axios";
 
@@ -7,6 +7,13 @@ function CreateBook() {
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
+
+  
+  const [status, setStatus] = useState({
+    type: '',
+    mensagem: ''
+  })
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,9 +27,9 @@ function CreateBook() {
       })
       .then((response) => response.json())
       .then((responseJson) => {
-        if (responseJson.error) {
+        if (responseJson === erro) {
           setStatus({
-            type: "error",
+            type: "erro",
             mensagem: responseJson.mensagem
           });
         } else {
@@ -34,17 +41,23 @@ function CreateBook() {
       })
       .catch(() => {
         setStatus({
-          type: "error",
+          type: "erro",
           mensagem: "Livro não cadastrado com sucesso, tente mais tarde!"
         });
       });
   };
+
 
   return (
     <div className="h-screen">
       <h1 className="text-white mt-[90px] flex justify-center py-4">
         Formulário de cadastramento de livros
       </h1>
+
+      
+      {status.type === 'erro' ? <p className="bg-red-300 text-red-700 text-center">{status.mensagem}</p> : ""}
+      {status.type === 'success' ? <p className="bg-green-300 text-green-700">{status.mensagem}</p> : ""}
+
 
       <div className="flex justify-center">
         <form className="flex flex-col mt-[90px] gap-2" onSubmit={handleSubmit}>

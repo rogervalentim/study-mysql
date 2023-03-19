@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <section className="mt-[70px]">
       <CarouselSection />
-      <h1 className="text-gray-200 text-2xl saturate-200 font-semibold mx-9 mt-[50px]">
+      <h1 className="text-black text-2xl saturate-200 font-semibold mx-9 mt-[50px]">
         Os Mais vendidos
       </h1>
       <div className="mx-4 grid sm:grid grid-cols-1 gap-4 w-full md:grid-cols-2 lg:grid-cols-4 ">

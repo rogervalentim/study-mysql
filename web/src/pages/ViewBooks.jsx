@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
 
+import { toast } from "react-toastify";
 
 const ViewBooks = () => {
   const [books, setBooks] = useState([]);
 
-  const {id} = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     async function fetchData() {
@@ -25,7 +26,12 @@ const ViewBooks = () => {
     fetchData();
   }, []);
 
-
+  const deleteBook = async () => {
+    await api
+      .delete(`deletar-livro/${id}`)
+      .then(({ data }) => toast.success(data))
+      .catch(({ data }) => toast.error(data));
+  };
 
   return (
     <>
@@ -33,7 +39,6 @@ const ViewBooks = () => {
         <h1 className="mt-[100px] text-white">Tabela de cadastro de livros</h1>
       </div>
       <section className="flex justify-center">
-       
         <table className="table-fixed mt-[50px] border-spacing-0 ">
           <thead>
             <tr className="bg-blue-200 text-center">
@@ -56,17 +61,17 @@ const ViewBooks = () => {
                 <td className="border border-black">
                   <div className="mx-2">
                     <Link to={`/visualizar-livro/` + book.id}>
-                    <button
-                      type="button"
-                      className="bg-blue-500 text-white rounded w-[100px] h-[40px]"
-                    >
-                      Visualizar
-                    </button>
+                      <button
+                        type="button"
+                        className="bg-blue-500 text-white rounded w-[100px] h-[40px]"
+                      >
+                        Visualizar
+                      </button>
                     </Link>
                     <button
                       type="button"
                       className="bg-red-500 text-white rounded w-[100px] h-[40px] mx-1"
-                      // onClick={DeleteBook}
+                      onClick={deleteBook}
                     >
                       Deletar
                     </button>
