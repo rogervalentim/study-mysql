@@ -11,6 +11,10 @@ import ConfirmModal from "../components/ConfirmModal";
 
 const ViewBooks = () => {
   const [books, setBooks] = useState([]);
+  const [status, setStatus] = useState({
+    type: "",
+    mensagem: ""
+  });
 
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [bookToDelete, setBookToDelete] = useState(null);
@@ -33,20 +37,42 @@ const ViewBooks = () => {
 
   const deleteBook = async (bookId) => {
     try {
-      await api.delete(`deletar-livro/${bookId}`);
+      const response = await api.delete(`deletar-livro/${bookId}`);
       setBooks(books.filter((book) => book.id !== bookId));
-      toast.success("Livro deletado com sucesso!");
+      setStatus({
+        type: "success",
+        mensagem: response.data.mensagem
+      });
     } catch (error) {
       console.log(error);
-      toast.error("Ocorreu um erro ao deletar o livro.");
+      setStatus({
+        type: "error",
+        mensagem: "ocorreu um erro ao tentar deletar o livro !"
+      });
     }
   };
 
   return (
     <>
-      <div className="flex justify-center">
-        <h1 className="mt-[100px] text-white">Tabela de cadastro de livros</h1>
+      <div className="flex justify-around mt-[100px]">
+        <h1 className="text-black font-bold text-4xl">Tabela de cadastro de livros</h1>
+        
+        <Link to="/cadastrar-livro">
+        <button className="bg-gray-700 hover:bg-green-600 w-[100px] h-[40px] text-white rounded">Cadastrar</button>
+        </Link>
       </div>
+ 
+      {status.type === "erro" ? (
+        <p className="bg-red-300 text-red-700 text-center">{status.mensagem}</p>
+      ) : (
+        ""
+      )}
+      {status.type === "success" ? (
+        <p className="bg-green-300 text-green-700 text-center">{status.mensagem}</p>
+      ) : (
+        ""
+      )}
+
       <section className="flex justify-center">
         <table className="table-fixed mt-[50px] border-spacing-0 ">
           <thead>
