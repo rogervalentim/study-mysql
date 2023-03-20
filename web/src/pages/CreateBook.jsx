@@ -2,58 +2,68 @@ import { useState, useRef } from "react";
 
 import { api } from "../../lib/axios";
 
-import { Formik, Form, Field, ErrorMessage } from "formik";
-
-import * as Yup from "yup";
-
 function CreateBook() {
-  const [title, setTitle] = useState("");
-  const [image, setImage] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-
   const [status, setStatus] = useState({
     type: "",
     mensagem: ""
   });
 
-  const validationSchema = Yup.object().shape({
-    title: Yup.string().required("O campo título é obrigatório"),
-    image: Yup.string().required("O campo imagem é obrigatório"),
-    description: Yup.string().required("O campo de descrição é obrigatório"),
-    price: Yup.number().required("O campo preço é obrigatório")
+  const [formValues, setFormValues] = useState({
+    title: "",
+    image: "",
+    description: "",
+    price: ""
   });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const [formErrors, setFormErrors] = useState({
+    title: "",
+    image: "",
+    description: "",
+    price: ""
+  });
 
-    await api
-      .post("/cadastrar-livro", {
-        title,
-        image,
-        description,
-        price
-      })
-      .then((response) => response.json())
-      .then((responseJson) => {
-        if (responseJson === erro) {
-          setStatus({
-            type: "erro",
-            mensagem: responseJson.mensagem
-          });
-        } else {
-          setStatus({
-            type: "success",
-            mensagem: responseJson.mensagem
-          });
-        }
-      })
-      .catch(() => {
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    let errors = {};
+
+    if (!formValues.title) {
+      errors.title = "O campo título é obrigatório";
+    }
+
+    if (!formValues.image) {
+      errors.image = "O campo imagem é obrigatório";
+    }
+
+    if (!formValues.description) {
+      errors.description = "O campo de descrição é obrigatório";
+    }
+
+    if (!formValues.price) {
+      errors.price = "O campo preço é obrigatório";
+    }
+
+    setFormErrors(errors);
+
+    if (Object.keys(errors).length === 0) {
+      try {
+        const response = await api.post("/cadastrar-livro", formValues);
+        setStatus({
+          type: "success",
+          mensagem: response.data.mensagem
+        });
+      } catch (error) {
         setStatus({
           type: "erro",
           mensagem: "Livro não cadastrado com sucesso, tente mais tarde!"
         });
-      });
+      }
+    }
   };
 
   return (
@@ -74,99 +84,90 @@ function CreateBook() {
       )}
 
       <div className="flex justify-center">
-        <Formik
-          initialValues={{
-            title: "",
-            image: "",
-            description: "",
-            price: ""
-          }}
-          validationSchema={validationSchema}
-          onSubmit={(values, actions) => {
-            handleSubmit(values, actions);
-          }}
+        <form
+          className="flex flex-col mt-[90px] gap-1 shadouw-md"
+          onSubmit={handleSubmit}
         >
-          {(formik) => (
-            <form className="flex flex-col mt-[90px] gap-1 shadouw-md">
-              <label className="text-black" htmlFor="title">
-                Nome:
-              </label>
-              <Field
-                className="bg-yellow-200 w-[550px] h-[45px] rounded flex justify-center placeholder:text-gray-800"
-                type="text"
-                id="text"
-                placeholder="O gato preto"
-                name="title"
-              />
-              {formik.errors.title && formik.touched.title && (
-                <div>
-                  <p className="text-red-700">{formik.errors.title}</p>
-                </div>
-              )}
-
-              <label className="text-black" htmlFor="image">
-                Imagem:
-              </label>
-              <Field
-                className="bg-yellow-200 w-[550px] h-[45px] rounded placeholder:text-gray-800"
-                type="text"
-                id="image"
-                placeholder="./src/assets/book-1.png"
-                name="image"
-              />
-              {formik.errors.image && formik.touched.image && (
-                <div>
-                  <p className="text-red-700">{formik.errors.image}</p>
-                </div>
-              )}
-
-              <label className="text-black" htmlFor="description">
-                Descrição:
-              </label>
-              <Field
-                className="bg-yellow-200 w-[550px] h-[45px] rounded placeholder:text-gray-800"
-                type="text"
-                id="description"
-                placeholder="livro sobre suspense, romance , comédia ..."
-                name="description"
-                required
-              />
-
-              {formik.errors.description && formik.touched.description && (
-                <div>
-                  <p className="text-red-700">{formik.errors.description}</p>
-                </div>
-              )}
-
-              <label className="text-black" htmlFor="price">
-                Preço:
-              </label>
-              <Field
-                className="bg-yellow-200 w-[550px] h-[45px] rounded placeholder:text-gray-800"
-                type="text"
-                id="price"
-                placeholder="23"
-                name="price"
-                required
-              />
-
-              {formik.errors.price && formik.touched.price && (
-                <div>
-                  <p className="text-red-700">{formik.errors.price}</p>
-                </div>
-              )}
-
-              <button
-                className="bg-gray-700 hover:bg-green-500 rounded text-white w-full h-[45px] mt-2 cursor-pointer"
-                type="submit"
-                disabled={!formik.isValid || formik.isSubmitting}
-                required
-              >
-                Cadastrar
-              </button>
-            </form>
+          <label className="text-black" htmlFor="title">
+            Nome:
+          </label>
+          <input
+            className="bg-yellow-200 w-[550px] h-[45px] rounded flex justify-center placeholder:text-gray-800"
+            type="text"
+            id="title"
+            placeholder="O gato preto"
+            name="title"
+            value={formValues.title}
+            onChange={handleInputChange}
+          />
+          {formErrors.title && (
+            <div>
+              <p className="text-red-700">{formErrors.title}</p>
+            </div>
           )}
-        </Formik>
+
+          <label className="text-black" htmlFor="image">
+            Imagem:
+          </label>
+          <input
+            className="bg-yellow-200 w-[550px] h-[45px] rounded placeholder:text-gray-800"
+            type="text"
+            id="image"
+            placeholder="./src/assets/book-1.png"
+            name="image"
+            value={formValues.image}
+            onChange={handleInputChange}
+          />
+          {formErrors.image && (
+            <div>
+              <p className="text-red-700">{formErrors.image}</p>
+            </div>
+          )}
+
+          <label className="text-black" htmlFor="image">
+            Descrição:
+          </label>
+          <input
+            className="bg-yellow-200 w-[550px] h-[45px] rounded placeholder:text-gray-800"
+            type="text"
+            id="description"
+            placeholder="livro sobre ação, terror ou comédia ..."
+            name="description"
+            value={formValues.description}
+            onChange={handleInputChange}
+          />
+          {formErrors.description && (
+            <div>
+              <p className="text-red-700">{formErrors.description}</p>
+            </div>
+          )}
+
+          <label className="text-black" htmlFor="image">
+            Preço:
+          </label>
+
+          <input
+            className="bg-yellow-200 w-[550px] h-[45px] rounded placeholder:text-gray-800"
+            type="number"
+            id="price"
+            placeholder="23"
+            name="price"
+            value={formValues.price}
+            onChange={handleInputChange}
+          />
+          {formErrors.description && (
+            <div>
+              <p className="text-red-700">{formErrors.description}</p>
+            </div>
+          )}
+
+          <button
+            className="bg-gray-700 hover:bg-green-500 rounded text-white w-full h-[45px] mt-2 cursor-pointer"
+            type="submit"
+          >
+            Cadastrar
+          </button>
+        </form>
       </div>
     </div>
   );
